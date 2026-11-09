@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hanna Ashley Solis | BSIT Cybersecurity Portfolio</title>
+<meta name="description" content="Portfolio of Hanna Ashley Solis, BSIT graduate (Cybersecurity) with IT support, networking and web development experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F6F8; --surface:#FFFFFF; --ink:#12202B; --muted:#52636F;
+  --line:#D4DDE3; --accent:#0B6FA4; --accent-ink:#FFFFFF; --ok:#1E8A5F;
+  --display:'Space Grotesk',system-ui,sans-serif; --body:'Manrope',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1A23; --surface:#15252F; --ink:#E8EFF3; --muted:#9FB1BD;
+    --line:#26394599; --accent:#4DB3E6; --accent-ink:#06202F; --ok:#4CC896;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1A23; --surface:#15252F; --ink:#E8EFF3; --muted:#9FB1BD;
+  --line:#26394599; --accent:#4DB3E6; --accent-ink:#06202F; --ok:#4CC896;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-padding-top:110px}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.65;font-size:17px}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+section{padding:72px 0;border-top:1px solid var(--line)}
+h1,h2,h3{font-family:var(--display);line-height:1.15}
+h2{font-size:2rem;margin-bottom:28px}
+h3{font-size:1.15rem;margin-bottom:6px}
+p{max-width:68ch}
+.muted{color:var(--muted)}
+
+/* nav */
+header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+nav .logo{font-family:var(--display);font-weight:700;color:var(--ink);text-decoration:none}
+nav ul{display:flex;gap:20px;list-style:none;overflow-x:auto}
+nav ul a{color:var(--muted);text-decoration:none;font-size:.95rem;white-space:nowrap}
+nav ul a:hover{color:var(--accent)}
+#theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:6px 10px;cursor:pointer;font:inherit;font-size:.85rem}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding:80px 0 72px}
+.hero h1{font-size:clamp(2.4rem,6vw,3.8rem);margin-bottom:16px}
+.hero .role{font-size:1.2rem;color:var(--accent);font-weight:700;margin-bottom:16px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-block;padding:11px 20px;border-radius:8px;font-weight:700;text-decoration:none;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent)}
+.btn:hover{opacity:.88}
+.topo{width:100%;height:auto}
+.topo line{stroke:var(--muted);stroke-width:2}
+.topo .node{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.topo .core{fill:var(--accent);stroke:var(--accent)}
+.topo text{fill:var(--ink);font:600 12px var(--display);text-anchor:middle}
+.topo .pulse{stroke:var(--ok);stroke-width:3;stroke-dasharray:6 14;animation:flow 1.6s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-20}}
+@media (prefers-reduced-motion:reduce){.topo .pulse{animation:none}}
+
+/* cards + grids */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px}
+.card p{font-size:.97rem;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;list-style:none}
+.tags li{font-size:.82rem;padding:3px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.card .links{margin-top:14px;display:flex;gap:16px;font-weight:700;font-size:.93rem}
+.skill-group h3{margin-bottom:10px}
+.skill-group .tags{margin-top:0}
+.skill-group .tags li{color:var(--ink);background:var(--surface)}
+
+/* timeline */
+.timeline{list-style:none;border-left:3px solid var(--line);padding-left:26px}
+.timeline li{position:relative;padding-bottom:30px}
+.timeline li::before{content:"";position:absolute;left:-35px;top:7px;width:13px;height:13px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.timeline .when{font-size:.88rem;color:var(--ok);font-weight:700}
+.timeline ul{list-style:none;margin:8px 0 0;color:var(--muted);font-size:.97rem}
+.timeline ul li{padding:0 0 6px}
+.timeline ul li::before{content:none}
+
+/* certs */
+.cert{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.badge{font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:6px;white-space:nowrap}
+.badge.done{background:var(--ok);color:#fff}
+.badge.progress{border:1px solid var(--accent);color:var(--accent)}
+
+footer{padding:40px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+.contact-list{list-style:none;display:grid;gap:8px}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;padding-top:48px}
+  nav{height:auto;flex-wrap:wrap;padding:8px 0}
+  nav ul{order:3;width:100%;gap:18px;padding-bottom:4px}
+}
+
+/* animation */
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero > div:first-child > *{animation:rise .7s ease both}
+.hero > div:first-child > :nth-child(2){animation-delay:.12s}
+.hero > div:first-child > :nth-child(3){animation-delay:.24s}
+.hero > div:first-child > :nth-child(4){animation-delay:.36s}
+.caret::after{content:"";display:inline-block;width:2px;height:1.05em;background:var(--accent);margin-left:3px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.topo .node{transition:transform .25s ease}
+.topo g.dev:hover .node{stroke:var(--accent)}
+@keyframes core{0%,100%{r:24}50%{r:27}}
+.topo .core{animation:core 2.4s ease-in-out infinite}
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;transition-delay:var(--d,0s)}
+.js .card.reveal.in{transition:opacity .6s ease,transform .2s ease,border-color .2s ease,box-shadow .2s ease;transition-delay:0s}
+.js .reveal.in{opacity:1;transform:none}
+.card{transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.card:hover,.js .card.reveal.in:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 10px 24px -14px var(--accent)}
+.tags li{transition:background .2s ease,color .2s ease,border-color .2s ease}
+.tags li:hover{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn{transition:transform .15s ease,opacity .15s ease}
+.btn:hover{transform:translateY(-2px)}
+nav ul a{position:relative;padding-bottom:4px}
+nav ul a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+nav ul a:hover::after,nav ul a.active::after{transform:scaleX(1)}
+nav ul a.active{color:var(--accent)}
+@media (prefers-reduced-motion:reduce){
+  .hero > div:first-child > *,.topo .core{animation:none}
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .card,.tags li,.btn{transition:none}
+  .card:hover,.js .card.reveal.in:hover,.btn:hover{transform:none}
+  .caret::after{animation:none}
+}
+
+/* cursor effects (mouse only) */
+.cursor-ring{position:fixed;top:0;left:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:2px solid var(--accent);border-radius:50%;pointer-events:none;z-index:50;opacity:0;transition:width .2s ease,height .2s ease,margin .2s ease,background .2s ease,opacity .2s ease}
+.cursor-ring.on{opacity:.75}
+.cursor-ring.big{width:60px;height:60px;margin:-30px 0 0 -30px;background:color-mix(in srgb,var(--accent) 15%,transparent)}
+.cursor-ring.down{width:22px;height:22px;margin:-11px 0 0 -11px}
+.cursor-dot{position:fixed;top:0;left:0;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--accent);pointer-events:none;z-index:51;opacity:0}
+.cursor-dot.on{opacity:1}
+.spark{position:fixed;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--ok);pointer-events:none;z-index:49;animation:spark .7s ease-out forwards}
+@keyframes spark{to{opacity:0;transform:translate(var(--x),var(--y)) scale(.2)}}
+.card{position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .25s ease;background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent) 16%,transparent),transparent 70%)}
+.card:hover::before{opacity:1}
+.hero h1{transition:letter-spacing .3s ease}
+.hero h1:hover{letter-spacing:.01em}
+@media (hover:none),(pointer:coarse){.cursor-ring,.cursor-dot{display:none}}
+@media (prefers-reduced-motion:reduce){.cursor-ring,.cursor-dot{display:none}.card::before{transition:none}}
+
+/* contact tiles */
+.contact-grid{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.tile{display:block;text-align:center;text-decoration:none;color:var(--ink)}
+.tile h3{margin-bottom:4px}
+.tile .info{margin:0 auto;font-size:.9rem;color:var(--muted);overflow-wrap:anywhere}
+.tile .ico{display:grid;place-items:center;width:58px;height:58px;margin:0 auto 14px;border-radius:50%;border:2px solid var(--accent);color:var(--accent);transition:background .25s ease,color .25s ease,transform .25s ease}
+.tile:hover .ico{background:var(--accent);color:var(--accent-ink);animation:wiggle .6s ease}
+.tile:hover .info{color:var(--accent)}
+@keyframes wiggle{0%{transform:rotate(0) scale(1)}25%{transform:rotate(-14deg) scale(1.12)}50%{transform:rotate(10deg) scale(1.12)}75%{transform:rotate(-6deg) scale(1.1)}100%{transform:rotate(0) scale(1.1)}}
+@media (prefers-reduced-motion:reduce){.tile:hover .ico{animation:none}}
+
+.tile .hint{margin:8px auto 0;font-size:.78rem;font-weight:700;color:var(--accent);transition:color .2s ease}
+.tile.copied .hint{color:var(--ok)}
+.tile.copied{border-color:var(--ok)}
+
+.toast{position:fixed;left:50%;bottom:28px;z-index:60;transform:translate(-50%,24px);opacity:0;pointer-events:none;background:var(--ok);color:#fff;font-weight:700;font-size:.95rem;padding:11px 20px;border-radius:999px;box-shadow:0 10px 24px -10px rgba(0,0,0,.45);transition:opacity .25s ease,transform .25s ease}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.toast{transition:none}}
+
+/* tech background */
+#bg{position:fixed;top:0;left:0;z-index:-1;pointer-events:none}
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(circle at 82% 8%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 45%),
+    radial-gradient(circle at 8% 70%,color-mix(in srgb,var(--ok) 10%,transparent),transparent 40%),
+    linear-gradient(color-mix(in srgb,var(--line) 55%,transparent) 1px,transparent 1px) 0 0/52px 52px,
+    linear-gradient(90deg,color-mix(in srgb,var(--line) 55%,transparent) 1px,transparent 1px) 0 0/52px 52px;
+  -webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
+/* terminal */
+.term{background:#0B1620;border-radius:12px;border:1px solid #284152;box-shadow:0 24px 50px -24px rgba(11,111,164,.55);overflow:hidden;font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.8rem;color:#DCE8EF}
+.term-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:#12212D;border-bottom:1px solid #284152}
+.term-bar span{width:11px;height:11px;border-radius:50%;background:#FF5F57}
+.term-bar span:nth-child(2){background:#FEBC2E}
+.term-bar span:nth-child(3){background:#28C840}
+.term-bar b{margin-left:10px;font-weight:400;font-size:.78rem;color:#8EA6B6}
+.term-body{padding:18px 18px 22px;min-height:290px}
+.term .ln{line-height:1.9;overflow-wrap:break-word}
+.term .ln i{font-style:normal;color:#4CC896;margin-right:8px}
+.term .out{color:#7FCBF0;padding-left:20px}
+.term .out.ok{color:#4CC896}
+.term .tcaret{display:inline-block;width:9px;height:1.05em;background:#4DB3E6;vertical-align:-3px;animation:blink 1s steps(1) infinite}
+.js .term .ln{opacity:0;transform:translateX(-8px);transition:opacity .35s ease,transform .35s ease}
+.js .term .ln.show{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .term .ln{opacity:1;transform:none;transition:none}.term .tcaret{animation:none}}
+
+/* responsive */
+html{-webkit-text-size-adjust:100%}
+section{padding:clamp(48px,8vw,72px) 0}
+h2{font-size:clamp(1.6rem,4.5vw,2rem);margin-bottom:clamp(20px,4vw,28px)}
+.hero h1{font-size:clamp(2.1rem,7.5vw,3.8rem)}
+nav ul{scrollbar-width:none}
+nav ul::-webkit-scrollbar{display:none}
+.timeline li{padding-right:2px}
+img,svg,canvas{max-width:100%}
+@media (max-width:1000px){
+  .hero{gap:32px}
+  .wrap{padding:0 22px}
+}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;padding:48px 0 56px}
+  .term{max-width:560px}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .wrap{padding:0 18px}
+  .hero{padding:32px 0 44px}
+  .hero .role{font-size:1.05rem}
+  .term-body{min-height:0;padding:14px 14px 18px}
+  nav{gap:6px 12px}
+  nav ul{gap:6px}
+  nav ul a{display:block;padding:8px 10px;border-radius:8px;font-size:.92rem}
+  nav ul a::after{left:10px;width:calc(100% - 20px);bottom:4px}
+  #theme{padding:8px 12px}
+  .btns .btn{flex:1 1 150px;text-align:center}
+  .grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr 1fr}
+  .card{padding:18px}
+  .timeline{padding-left:20px}
+  .timeline li::before{left:-29px}
+  .cert{flex-direction:column;gap:10px}
+  footer{padding:28px 0}
+}
+@media (max-width:420px){
+  .contact-grid{grid-template-columns:1fr}
+  .tags li{font-size:.8rem}
+}
+@media (max-width:340px){
+  body{font-size:15px}
+  .wrap{padding:0 14px}
+  .btns .btn{flex-basis:100%}
+}
+.video-link.soon{opacity:.55;cursor:not-allowed;text-decoration:none}
+.card .links{flex-wrap:wrap;gap:8px 18px}
+
+/* contact form */
+.contact-wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:24px;align-items:start}
+.contact-wrap .contact-grid{grid-template-columns:1fr;gap:14px}
+.contact-wrap .tile{display:grid;grid-template-columns:48px 1fr;column-gap:16px;align-items:center;text-align:left;padding:16px 18px}
+.contact-wrap .tile .ico{margin:0;grid-row:1 / span 2;width:48px;height:48px}
+.contact-wrap .tile h3{margin:0;align-self:end}
+.contact-wrap .tile .info{margin:0;font-size:.88rem;align-self:start;word-break:break-word}
+.form-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;display:grid;gap:6px}
+.form-card h3{font-size:1.25rem;margin-bottom:10px}
+.form-card label{font-weight:700;font-size:.92rem;margin-top:10px}
+.form-card input:not(.hp),.form-card textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px 13px;transition:border-color .2s ease,box-shadow .2s ease}
+.form-card textarea{resize:vertical;min-height:130px}
+.form-card input:not(.hp):focus,.form-card textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 25%,transparent)}
+.form-card ::placeholder{color:var(--muted);opacity:.8}
+.form-card .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.form-card .btn{margin-top:16px;font:inherit;font-weight:700;cursor:pointer}
+.form-card .btn:disabled{opacity:.6;cursor:wait}
+.form-status{min-height:1.4em;margin-top:8px;font-size:.92rem;color:var(--ok);font-weight:700}
+.form-status.err{color:#B3402F}
+@media (max-width:860px){.contact-wrap{grid-template-columns:1fr}}
+@media (max-width:760px){.form-card{padding:18px}}
+
+/* compact contact form */
+.contact-wrap{align-items:stretch}
+.form-card{display:flex;flex-direction:column;gap:10px;padding:18px 20px}
+.form-card h3{font-size:1.1rem;margin:0 0 2px}
+.form-card .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-card .fld{display:flex;flex-direction:column;gap:5px;min-width:0}
+.form-card .fld.msg{flex:1}
+.form-card label{margin:0;font-size:.85rem}
+.form-card input:not(.hp),.form-card textarea{padding:9px 12px;font-size:.95rem}
+.form-card textarea{flex:1;min-height:84px;resize:none}
+.form-card .btn{margin-top:2px;padding:10px 20px}
+.form-status{min-height:0;margin:0;font-size:.88rem}
+.form-status:empty{display:none}
+@media (max-width:860px){.contact-wrap{align-items:start}.form-card textarea{min-height:110px}}
+@media (max-width:480px){.form-card .row2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="logo" href="#top">Hanna Solis</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#certs">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="theme" type="button" aria-label="Toggle light or dark theme">Theme</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap">
+
+  <div class="hero">
+    <div>
+      <h1>Hi, I’m Hanna Solis.</h1>
+      <p class="role" id="role">BSIT Cybersecurity · IT Support · Networking · Web</p>
+      <p>I’m a BSIT graduate with hands-on IT support experience from my internship at Concentrix, including hardware troubleshooting and diagnostics, and a solid foundation in networking fundamentals and Cisco Packet Tracer.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="term" role="img" aria-label="Terminal window showing Hanna's name, role, skills and availability">
+      <div class="term-bar"><span></span><span></span><span></span><b>hanna@portfolio:~</b></div>
+      <div class="term-body">
+        <div class="ln"><i>$</i> whoami</div>
+        <div class="ln out">hanna-ashley-solis</div>
+        <div class="ln"><i>$</i> cat role.txt</div>
+        <div class="ln out">BSIT graduate, Cybersecurity major</div>
+        <div class="ln"><i>$</i> ls skills/</div>
+        <div class="ln out">it-support/ networking/ security/ web/</div>
+        <div class="ln"><i>$</i> cat status.txt</div>
+        <div class="ln out ok">open to entry-level IT and security roles</div>
+        <div class="ln"><i>$</i> <span class="tcaret"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <h2>About me</h2>
+    <p>I graduated from PHINMA University of Pangasinan with a Bachelor of Science in Information Technology, major in Cybersecurity. During my IT support internship at Concentrix, I got hands-on practice with hardware troubleshooting, RAM and monitor checks, diagnostic tools like Hiren’s BootCD, and installing software by following set procedures in a data center and workstation environment.</p>
+    <p style="margin-top:14px">I have a working knowledge of networking fundamentals, including TCP/UDP, DNS and IP configuration, the OSI model, switch port diagnostics and LAN/WAN concepts. Through Cisco Networking Academy, I configure and secure networks in Packet Tracer, such as setting up a wireless router with DHCP and WPA2.</p>
+    <p style="margin-top:14px">I work well with people and in a team, communicate clearly, and pick up new tools and processes quickly, so I’m easy to train. I stay organized by managing my schedule with to-do lists that track my progress, which keeps every task on track. Beyond IT support, I’m comfortable with productivity and multimedia tools, including Microsoft 365 for documents and organization, Figma for design, and video editing and Blender for multimedia work. I bring a technical background together with reliable, organized support.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills and tools</h2>
+    <div class="grid">
+      <div class="skill-group">
+        <h3>IT support</h3>
+        <ul class="tags"><li>Hardware diagnostics</li><li>RAM upgrades</li><li>Peripheral testing</li><li>System reimaging</li><li>OS deployment</li><li>CCTV configuration</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>Networking</h3>
+        <ul class="tags"><li>TCP/UDP</li><li>DNS and IP configuration</li><li>Switch port diagnostics</li><li>OSI model</li><li>LAN/WAN basics</li><li>Cisco Packet Tracer</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>Security</h3>
+        <ul class="tags"><li>Cybersecurity fundamentals</li><li>Endpoint security</li><li>Kali Linux</li><li>Wireshark</li><li>BigFix, CrowdStrike, Cortex XDR (exposure)</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>Web development</h3>
+        <ul class="tags"><li>HTML and CSS</li><li>JavaScript</li><li>PHP</li><li>Laravel</li><li>MySQL</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>Programming</h3>
+        <ul class="tags"><li>Python</li><li>Java</li><li>Git and GitHub</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>Productivity & Multimedia</h3>
+        <ul class="tags"><li>VS Code</li><li>Microsoft 365</li><li>Figma</li><li>Blender</li><li>Video editing</li><li>Google Workspace</li><li>AI Operations (Claude, ChatGPT, Gemini)</li><li>CapCut & KineMaster</li><li>Canva</li><li>Ibispaint</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Network Infrastructure and Cybersecurity Strategy</h3>
+        <p>Team-based project for Calasiao Municipal Hall: a network infrastructure for the municipal hall and a web app for cybersecurity awareness. The project won the Trojan Awards Best Computer Security Project.</p>
+        <ul class="tags"><li>Cisco Packet Tracer</li><li>Web</li></ul>
+        <!-- PUT YOUR LINKS HERE: replace each PASTE-...-HERE below with your real link (YouTube, Google Drive or GitHub), keep the quote marks -->
+        <div class="links">
+          <a class="video-link" data-label="Web app demo" href="https://youtu.be/XUjMbrnaaEQ" target="_blank" rel="noopener">Web app demo</a>
+          <a class="video-link" data-label="Cisco infrastructure" href="https://github.com/AshliiDev/calasiao-network-infrastructure" target="_blank" rel="noopener">Cisco infrastructure</a>
+          <a class="video-link" data-label="Background deck" href="https://youtu.be/RA0XcSNJJk8" target="_blank" rel="noopener">Background deck</a>
+        </div>
+      </article>
+      <article class="card">
+        <h3>Quizzly: Interactive Learning Platform</h3>
+        <p>Web app where students can self-assess and instructors can create and manage quizzes. Built with a team and delivered on schedule.</p>
+        <ul class="tags"><li>Laravel</li><li>MySQL</li><li>JavaScript</li></ul>
+        <div class="links"><a href="https://github.com/Frinz1/aquiz-app" target="_blank" rel="noopener">Code</a></div>
+      </article>
+      <article class="card">
+        <h3>At Your Service</h3>
+        <p>Web app that streamlines vehicle service requests and maintenance management.</p>
+        <ul class="tags"><li>PHP</li><li>Laravel</li><li>MySQL</li><li>CSS</li></ul>
+        <div class="links"><a href="https://github.com/maquirimitdev/At-Your-Service" target="_blank" rel="noopener">Code</a></div>
+      </article>
+      <article class="card">
+        <h3>Packet Tracer Lab: Wireless Router and Clients</h3>
+        <p>Cisco NetAcad lab where I built a small home network: configured a wireless router with DHCP, replaced the default admin login, secured the Wi-Fi with WPA2, and tested wired and wireless clients.</p>
+        <ul class="tags"><li>Cisco</li><li>Packet Tracer</li><li>DHCP</li><li>WPA2</li></ul>
+        <div class="links"><a href="https://github.com/AshliiDev/packet-tracer-labs/tree/main/01-wireless-router-and-clients" target="_blank" rel="noopener">View lab</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience and education</h2>
+    <ol class="timeline">
+      <li>
+        <span class="when">Dec 2025 to Mar 2026</span>
+        <h3>IT Technical Support Intern (OJT), Concentrix</h3>
+        <p class="muted" style="font-size:.93rem">UP Diliman Technohub, Manila</p>
+        <ul>
+          <li>Assisted in a data center environment by observing server troubleshooting and helping with basic hardware adjustments under senior guidance.</li>
+          <li>Deployed enterprise applications by following protocols to install software from secure network shared folders.</li>
+          <li>Supported deployment of BigFix, CrowdStrike and Cortex XDR on production workstations.</li>
+          <li>Used Hiren’s BootCD for basic hardware diagnostics and partition management, and checked RAM and monitors to keep workstations ready.</li>
+        </ul>
+      </li>
+      <li>
+        <span class="when">2022 to 2026</span>
+        <h3>BS Information Technology, Major in Cybersecurity</h3>
+        <p class="muted" style="font-size:.93rem">PHINMA University of Pangasinan, Dagupan</p>
+      </li>
+      <li>
+        <span class="when">2020 to 2022</span>
+        <h3>Senior High School, ICT Strand</h3>
+        <p class="muted" style="font-size:.93rem">Mangaldan National High School, Pangasinan</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="certs">
+    <h2>Certifications and awards</h2>
+    <div class="grid">
+      <div class="card cert">
+        <div><h3>Introduction to Cybersecurity</h3><p>Cisco</p></div>
+        <span class="badge done">Completed</span>
+      </div>
+      <div class="card cert">
+        <div><h3>Endpoint Security</h3><p>Cisco</p></div>
+        <span class="badge done">Completed</span>
+      </div>
+      <div class="card cert">
+        <div><h3>Best Computer Security Project</h3><p>Trojan Awards, team award for the Network Infrastructure and Cybersecurity Strategy project</p></div>
+        <span class="badge done">Award</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Let’s connect</h2>
+    <p style="margin-bottom:24px">I’m open to entry-level roles in IT support, security and networking. Send me a message, or use any of the contact options.</p>
+    <div class="contact-wrap">
+    <div class="grid contact-grid">
+      <a class="card tile" href="mailto:hannaashleymontenolasolis@gmail.com" data-copy="hannaashleymontenolasolis@gmail.com">
+        <span class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+        <h3>Email</h3>
+        <p class="info">hannaashleymontenolasolis@gmail.com</p>
+      </a>
+      <a class="card tile" href="tel:+639954046579" data-copy="09954046579">
+        <span class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <h3>Phone</h3>
+        <p class="info">0995 404 6579</p>
+      </a>
+      <a class="card tile" href="https://github.com/AshliiDev" target="_blank" rel="noopener">
+        <span class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></span>
+        <h3>GitHub</h3>
+        <p class="info">github.com/AshliiDev</p>
+      </a>
+      <a class="card tile" href="https://www.linkedin.com/in/hanna-ashley-solis-b1521b256" target="_blank" rel="noopener">
+        <span class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
+        <h3>LinkedIn</h3>
+        <p class="info">linkedin.com/in/hanna-ashley-solis-b1521b256</p>
+      </a>
+    </div>
+    <form class="form-card" id="contact-form" action="https://formspree.io/f/mzeelevq" method="POST">
+      <!-- Contact form is connected to Formspree (form ID in the action above). Messages are emailed to the address on the Formspree account. -->
+      <h3>Send me a message</h3>
+      <div class="row2">
+        <div class="fld">
+          <label for="cf-name">Your name <span aria-hidden="true">*</span></label>
+          <input id="cf-name" name="name" type="text" required autocomplete="name">
+        </div>
+        <div class="fld">
+          <label for="cf-email">Your email <span aria-hidden="true">*</span></label>
+          <input id="cf-email" name="email" type="email" required autocomplete="email">
+        </div>
+      </div>
+      <div class="fld msg">
+        <label for="cf-msg">How can I help? <span aria-hidden="true">*</span></label>
+        <textarea id="cf-msg" name="message" rows="3" required placeholder="Tell me what you need help with."></textarea>
+      </div>
+      <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn primary" id="form-btn" type="submit">Send message</button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> Hanna Ashley M. Solis. Built with HTML, CSS and JavaScript.</div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+var btn = document.getElementById('theme');
+btn.addEventListener('click', function () {
+  var root = document.documentElement;
+  var dark = root.getAttribute('data-theme') === 'dark' ||
+    (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  root.setAttribute('data-theme', dark ? 'light' : 'dark');
+});
+
+document.documentElement.classList.add('js');
+var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// typing effect on the role line
+var role = document.getElementById('role');
+var full = role.textContent;
+if (!reduce) {
+  role.textContent = '';
+  role.classList.add('caret');
+  var i = 0;
+  setTimeout(function type() {
+    role.textContent = full.slice(0, ++i);
+    if (i < full.length) { setTimeout(type, 38); }
+    else { setTimeout(function () { role.classList.remove('caret'); }, 1800); }
+  }, 500);
+}
+
+// reveal on scroll
+var items = Array.prototype.filter.call(document.querySelectorAll('section h2, .card, .skill-group, section > p'), function (el) { return !el.closest('#experience'); });
+items.forEach(function (el, n) {
+  el.classList.add('reveal');
+  el.style.setProperty('--d', ((n % 3) * 0.08) + 's');
+});
+if ('IntersectionObserver' in window) {
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  items.forEach(function (el) { io.observe(el); });
+} else {
+  items.forEach(function (el) { el.classList.add('in'); });
+}
+
+// cursor ring, dot and click sparks (mouse devices only)
+if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  var ring = document.createElement('div'); ring.className = 'cursor-ring';
+  var dot = document.createElement('div'); dot.className = 'cursor-dot';
+  document.body.appendChild(ring); document.body.appendChild(dot);
+  var mx = 0, my = 0, rx = 0, ry = 0;
+  window.addEventListener('mousemove', function (e) {
+    mx = e.clientX; my = e.clientY;
+    dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+    ring.classList.add('on'); dot.classList.add('on');
+  });
+  document.addEventListener('mouseleave', function () { ring.classList.remove('on'); dot.classList.remove('on'); });
+  (function follow() {
+    rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
+    ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px)';
+    requestAnimationFrame(follow);
+  })();
+  var hot = 'a, button, .card, .tile, .tags li';
+  document.addEventListener('mouseover', function (e) { if (e.target.closest(hot)) ring.classList.add('big'); });
+  document.addEventListener('mouseout', function (e) { if (e.target.closest(hot)) ring.classList.remove('big'); });
+  document.addEventListener('mousedown', function () { ring.classList.add('down'); });
+  document.addEventListener('mouseup', function () { ring.classList.remove('down'); });
+  document.addEventListener('click', function (e) {
+    for (var k = 0; k < 6; k++) {
+      var sp = document.createElement('span'); sp.className = 'spark';
+      var a = (Math.PI * 2 * k) / 6;
+      sp.style.left = e.clientX + 'px'; sp.style.top = e.clientY + 'px';
+      sp.style.setProperty('--x', Math.cos(a) * 28 + 'px');
+      sp.style.setProperty('--y', Math.sin(a) * 28 + 'px');
+      document.body.appendChild(sp);
+      setTimeout(function (n) { n.remove(); }, 700, sp);
+    }
+  });
+}
+
+// spotlight glow that follows the mouse inside cards
+document.querySelectorAll('.card').forEach(function (c) {
+  c.addEventListener('mousemove', function (e) {
+    var r = c.getBoundingClientRect();
+    c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+});
+
+// animated scroll when a menu tab or button is clicked
+function easeInOut(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+var glideId = 0; // every new click cancels the glide that was already running
+function glideTo(target, isTop) {
+  var myId = ++glideId;
+  function dest() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var y = isTop ? 0 : target.getBoundingClientRect().top + window.scrollY - document.querySelector('header').offsetHeight;
+    return Math.max(0, Math.min(y, max));
+  }
+  var start = window.scrollY;
+  if (reduce || Math.abs(dest() - start) < 2) { window.scrollTo(0, dest()); return; }
+  var dur = Math.min(1100, 500 + Math.abs(dest() - start) * 0.25), t0 = null;
+  function step(ts) {
+    if (myId !== glideId) return; // a newer click or the user's own scrolling took over
+    if (t0 === null) t0 = ts;
+    var p = Math.min((ts - t0) / dur, 1);
+    window.scrollTo(0, start + (dest() - start) * easeInOut(p));
+    if (p < 1) { requestAnimationFrame(step); }
+    else { setTimeout(function () { if (myId === glideId) window.scrollTo(0, dest()); }, 250); } // settle exactly
+  }
+  requestAnimationFrame(step);
+}
+['wheel', 'touchstart', 'keydown'].forEach(function (ev) {
+  window.addEventListener(ev, function () { glideId++; }, { passive: true });
+});
+document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+  var id = a.getAttribute('href');
+  if (id.length < 2) return;
+  a.addEventListener('click', function (e) {
+    var target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    glideTo(target, id === '#top');
+    var navList = a.closest('nav ul'); // on phones, slide the menu row so the clicked tab stays visible
+    if (navList && navList.scrollWidth > navList.clientWidth) {
+      navList.scrollTo({ left: a.offsetLeft - (navList.clientWidth - a.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+    }
+    try { history.pushState(null, '', id); } catch (err) { /* preview frames block this; scrolling still works */ }
+  });
+});
+
+// click email or phone: copied instantly, with a confirmation message
+function copyText(text) {
+  var done = false;
+  // method 1 runs right inside the click, so every browser allows it
+  var ta = document.createElement('textarea');
+  ta.value = text; ta.setAttribute('readonly', '');
+  ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;';
+  document.body.appendChild(ta);
+  ta.focus(); ta.select(); ta.setSelectionRange(0, text.length);
+  try { done = document.execCommand('copy'); } catch (err) {}
+  ta.remove();
+  // method 2 as a backup
+  if (!done && navigator.clipboard) {
+    return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return false; });
+  }
+  return Promise.resolve(done);
+}
+var toast = document.getElementById('toast'), toastTimer;
+function showToast(msg, ok) {
+  toast.textContent = msg;
+  toast.style.background = ok ? 'var(--ok)' : '#B3402F';
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2200);
+}
+document.querySelectorAll('.tile[data-copy]').forEach(function (tile) {
+  var label = tile.querySelector('h3').textContent;
+  tile.addEventListener('click', function (e) {
+    e.preventDefault();
+    var text = tile.getAttribute('data-copy');
+    copyText(text).then(function (ok) {
+      if (ok) {
+        showToast('✓ ' + label + ' copied to clipboard', true);
+        tile.classList.add('copied');
+        setTimeout(function () { tile.classList.remove('copied'); }, 1500);
+      } else {
+        showToast('Could not copy. Select it manually: ' + text, false);
+      }
+    });
+  });
+});
+
+// project links: show "coming soon" until a real link is pasted in
+document.querySelectorAll('.video-link').forEach(function (a) {
+  if (a.getAttribute('href').indexOf('PASTE-') !== -1) {
+    a.textContent = a.getAttribute('data-label');
+    a.setAttribute('title', 'Coming soon');
+    a.classList.add('soon');
+    a.setAttribute('aria-disabled', 'true');
+    a.addEventListener('click', function (e) { e.preventDefault(); });
+  }
+});
+
+// terminal lines appear one after another
+document.querySelectorAll('.term .ln').forEach(function (el, n) {
+  if (reduce) { el.classList.add('show'); return; }
+  setTimeout(function () { el.classList.add('show'); }, 700 + n * 520);
+});
+
+// animated network background that reacts to the mouse
+(function () {
+  var cv = document.getElementById('bg');
+  if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext('2d'), W = 0, H = 0, pts = [], mouse = { x: -999, y: -999 }, color = '#0B6FA4', frame = 0;
+  function readColor() { var c = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim(); if (c) color = c; }
+  function size() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth; H = window.innerHeight;
+    cv.width = W * dpr; cv.height = H * dpr; cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.round(Math.min(85, Math.max(26, (W * H) / 20000)));
+    while (pts.length < n) pts.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35 });
+    pts.length = n;
+  }
+  function draw() {
+    if (frame++ % 40 === 0) readColor();
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = color; ctx.strokeStyle = color; ctx.lineWidth = 1;
+    for (var a = 0; a < pts.length; a++) {
+      var p = pts[a];
+      if (!reduce) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+      }
+      ctx.globalAlpha = 0.55; ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, 6.2832); ctx.fill();
+      for (var b = a + 1; b < pts.length; b++) {
+        var q = pts[b], dx = p.x - q.x, dy = p.y - q.y, d = Math.sqrt(dx * dx + dy * dy);
+        if (d < 125) { ctx.globalAlpha = (1 - d / 125) * 0.32; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke(); }
+      }
+      var mx = p.x - mouse.x, my = p.y - mouse.y, md = Math.sqrt(mx * mx + my * my);
+      if (md < 170) { ctx.globalAlpha = (1 - md / 170) * 0.7; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); }
+    }
+    ctx.globalAlpha = 1;
+    if (!reduce) requestAnimationFrame(draw);
+  }
+  window.addEventListener('mousemove', function (e) { mouse.x = e.clientX; mouse.y = e.clientY; });
+  document.addEventListener('mouseleave', function () { mouse.x = mouse.y = -999; });
+  window.addEventListener('resize', function () { size(); if (reduce) draw(); });
+  size(); readColor(); draw();
+})();
+
+// contact form: sends through Formspree once set up, otherwise opens the visitor's email app
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  var status = document.getElementById('form-status'), btn = document.getElementById('form-btn');
+  var TO = 'hannaashleymontenolasolis@gmail.com';
+  function say(msg, bad) { status.textContent = msg; status.classList.toggle('err', !!bad); }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = new FormData(form);
+    if (data.get('_gotcha')) return; // spam trap
+    var action = form.getAttribute('action');
+    if (action.indexOf('YOUR_FORM_ID') !== -1) {
+      var subject = 'Portfolio message from ' + data.get('name');
+      var body = data.get('message') + '\n\nFrom: ' + data.get('name') + ' (' + data.get('email') + ')';
+      say('Opening your email app to send this message…');
+      window.location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      return;
+    }
+    btn.disabled = true; btn.textContent = 'Sending…'; say('');
+    fetch(action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+      .then(function (r) {
+        if (!r.ok) throw new Error('failed');
+        form.reset(); say('Thank you! Your message was sent. I’ll reply as soon as I can.');
+      })
+      .catch(function () { say('Sorry, that didn’t send. Please email me directly at ' + TO + '.', true); })
+      .then(function () { btn.disabled = false; btn.textContent = 'Send message'; });
+  });
+})();
+</script>
+</body>
+</html>
